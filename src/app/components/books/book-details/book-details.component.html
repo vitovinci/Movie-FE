@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>{{model.id ? "Edit Book" : "New Book"}}</h2>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Inserisci il titolo" [(ngModel)]="model.title">
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input type="text" class="form-control" id="description" placeholder="Inserisci la descrizione" [(ngModel)]="model.description">
+      </div>
+      <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <select class="form-select" id="author" [(ngModel)]="model.authorId">
+          <option *ngFor="let item of authors" [value]="item.id">{{item.firstName}}  {{item.lastName}}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="save()">{{model.id ? "Edit" : "Save"}}</button>
+  </div>
+  
